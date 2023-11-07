@@ -24,7 +24,7 @@ def Page_selected():
     elif choice_App==15000:
         df=df[10000<df[ApplicantIncome]<=15000]
     elif choice_App==20000:
-        df=df[[15000<df[ApplicantIncome]<=20000]
+        df=df[15000<df[ApplicantIncome]<=20000]
     else:
         df=df[df[ApplicantIncome]>20000]
     choice_Coapp=st.selectbox('CoApplicant Income',["0","<3000","<6000","<=10,000",">10,000"])
