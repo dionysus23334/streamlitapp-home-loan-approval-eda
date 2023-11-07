@@ -154,7 +154,7 @@ def main():
     session_state=st.session_state
     if 'page' not in session_state:
         session_state['page']='Home'
-    page=st.sidebar.radio('Navigate',['Home','Plot_bar','Plot_box','Plot_pie','Plot_heatmap'])
+    page=st.sidebar.radio('Navigate',['Home','Plot_bar','Plot_box','Plot_pie','Plot_heatmap','LiuYanLin_pie'])
     #to implement multi-pages
     if page=='Home':
         page_home()
@@ -166,5 +166,6 @@ def main():
         page_plot_pie()
     elif page=='Plot_heatmap':
         page_plot_heatmap()
-                                      
+    elif page=='LiuYanlin_pie':
+        plot_pei_LiuYanLin()    
 main()
