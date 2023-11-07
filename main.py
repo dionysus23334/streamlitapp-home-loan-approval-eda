@@ -16,7 +16,7 @@ def Page_selected():
     st.text("Choose your situation")
     df=wash_data.wash_data()
     choice_App=st.selectbox('Applicant Income',["<5000","<10,000","<15,000","<=20,000",">20,000"])
-    choice_App=choice_App.str.replace('[<>=,]','',regex=True).astype(float)
+    choice_App=choice_App.replace('[<>=,]','',regex=True).astype(float)
     if choice_App==5000:
         df=df[df[ApplicantIncome]<=5000]
     elif choice_App==10000:
@@ -28,7 +28,7 @@ def Page_selected():
     else:
         df=df[df[ApplicantIncome]>20000]
     choice_Coapp=st.selectbox('CoApplicant Income',["0","<3000","<6000","<=10,000",">10,000"])
-    choice_Coapp=choice_Coapp.str.replace('[<>=,]','',regex=True).astype(float)
+    choice_Coapp=choice_Coapp.replace('[<>=,]','',regex=True).astype(float)
     if choice_Coapp==0:
         df=df[df[CoapplicantIncome]==0]
     elif choice_Coapp==3000:
