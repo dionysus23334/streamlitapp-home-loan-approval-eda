@@ -20,30 +20,30 @@ def Page_selected():
     choice_App=(choice_App.replace('<=',''))
     choice_App=float(choice_App.replace('>',''))
     if choice_App==5000:
-        df=df[df[ApplicantIncome]<=5000]
+        df=df[df['ApplicantIncome']<=5000]
     elif choice_App==10000:
-        df=df[5000<df[ApplicantIncome]<=10000]
+        df=df[5000<df['ApplicantIncome']<=10000]
     elif choice_App==15000:
-        df=df[10000<df[ApplicantIncome]<=15000]
+        df=df[10000<df['ApplicantIncome']<=15000]
     elif choice_App==20000:
-        df=df[15000<df[ApplicantIncome]<=20000]
+        df=df[15000<df['ApplicantIncome']<=20000]
     else:
-        df=df[df[ApplicantIncome]>20000]
+        df=df[df['ApplicantIncome']>20000]
     choice_Coapp=st.selectbox('CoApplicant Income',["0","<3000","<6000","<=10000",">10000"])
     choice_Coapp=(choice_Coapp.replace('<',''))
     choice_Coapp=(choice_Coapp.replace('<=',''))
     choice_Coapp=float(choice_Coapp.replace('>',''))
     if choice_Coapp==0:
-        df=df[df[CoapplicantIncome]==0]
+        df=df[df['CoapplicantIncome']==0]
     elif choice_Coapp==3000:
-        df=df[0<df[CoapplicantIncome]<=3000]
+        df=df[0<df['CoapplicantIncome']<=3000]
     elif choice_Coapp==6000:
-        df=df[3000<df[CoapplicantIncome]<=6000]
+        df=df[3000<df['CoapplicantIncome']<=6000]
     elif choice_Coapp==10000:
-        df=df[6000<df[CoapplicantIncome]<=10000]
+        df=df[6000<df['CoapplicantIncome']<=10000]
     else:
-        df=df[df[CoapplicantIncome]>10000]
-    df_success=df[df[Loan_Status]==1].shape[0]
+        df=df[df['CoapplicantIncome']>10000]
+    df_success=df[df['Loan_Status']==1].shape[0]
     df_all=df.shape[0]
     df_how=df_success/df_all
     st.text("The probability of your loan success is:"+str(df_how))
