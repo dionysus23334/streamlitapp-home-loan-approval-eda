@@ -30,7 +30,7 @@ def Page_selected():
     choice_Coapp=st.selectbox('CoApplicant Income',["0","<3000","<6000","<=10,000",">10,000"])
     choice_Coapp=choice_Coapp.str.replace('[<>=,]','',regex=True).astype(float)
     if choice_Coapp==0:
-        df=df[df[CoapplicantIncome]=0]
+        df=df[df[CoapplicantIncome]==0]
     elif choice_Coapp==3000:
         df=df[0<df[CoapplicantIncome]<=3000]
     elif choice_Coapp==6000:
@@ -39,7 +39,7 @@ def Page_selected():
         df=df[6000<df[CoapplicantIncome]<=10000]
     else:
         df=df[df[CoapplicantIncome]>10000]
-    df_success=df[df[Loan_Status]=1].shape[0]
+    df_success=df[df[Loan_Status]==1].shape[0]
     df_all=df.shape[0]
     df_how=df_success/df_all
     st.text("The probability of your loan success is:"+str(df_how))
