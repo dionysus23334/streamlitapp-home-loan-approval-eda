@@ -145,7 +145,7 @@ def page_plot_pie():
         return None
     else:
         for i in range(0,df.shape[0]):
-            labels.append(f'{choice_x}:{i}')
+            labels.append(f'{choice_x}:{df.index.tolist()[i]}')
     ax.pie(df['Loan_ID'],labels=labels,autopct="%1.1f%%")
     st.pyplot(fig)
     return None
