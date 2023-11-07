@@ -17,7 +17,7 @@ def Page_selected():
     df=wash_data.wash_data()
     choice_App=st.selectbox('Applicant Income',["<5000","<10000","<15000","<=20000",">20000"])
     choice_App=(choice_App.replace('<',''))
-    choice_App=(choice_App.replace('<=',''))
+    choice_App=(choice_App.replace('=',''))
     choice_App=float(choice_App.replace('>',''))
     if choice_App==5000:
         df=df[df['ApplicantIncome']<=5000]
@@ -31,7 +31,7 @@ def Page_selected():
         df=df[df['ApplicantIncome']>20000]
     choice_Coapp=st.selectbox('CoApplicant Income',["0","<3000","<6000","<=10000",">10000"])
     choice_Coapp=(choice_Coapp.replace('<',''))
-    choice_Coapp=(choice_Coapp.replace('<=',''))
+    choice_Coapp=(choice_Coapp.replace('=',''))
     choice_Coapp=float(choice_Coapp.replace('>',''))
     if choice_Coapp==0:
         df=df[df['CoapplicantIncome']==0]
