@@ -17,7 +17,7 @@ def select_data(size=1,is_graduate=None,is_married=None,is_female=None,is_self_e
     return df
 
 #Author:Tianqi Liu
-def select_Loan_Status(x=None)
+def select_Loan_Status(x=None):
     df=get_all_data()
     df=df[df.columns if x==None else df['Loan_Status']==x]
     return df
