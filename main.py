@@ -11,6 +11,40 @@ import streamlit as st
 import wash_data
 import get_data
 
+#Author:HuXintong
+def Page_selected():
+    st.text("Choose your situation")
+    df=wash_data.wash_data()
+    choice_App=st.selectbox('Applicant Income',["<5000","<10,000","<15,000","<=20,000",">20,000"]
+    choice_App=choice_App.str.replace('[<>=,]','',regex=True).astype(float)
+    if choice_App==5000:
+        df=df[df[ApplicantIncome]<=5000]
+    elif choice_App==10000:
+        df=df[5000<df[ApplicantIncome]<=10000]
+    elif choice_App==15000:
+        df=df[10000<df[ApplicantIncome]<=15000]
+    elif choice_App==20000:
+        df=df[[15000<df[ApplicantIncome]<=20000]
+    else:
+        df=df[df[ApplicantIncome]>20000]
+    choice_Coapp=st.selectbox('CoApplicant Income',["0","<3000","<6000","<=10,000",">10,000"]
+    choice_Coapp=choice_Coapp.str.replace('[<>=,]','',regex=True).astype(float)
+    if choice_Coapp==0:
+        df=df[df[CoapplicantIncome]=0]
+    elif choice_Coapp==3000:
+        df=df[0<df[CoapplicantIncome]<=3000]
+    elif choice_Coapp==6000:
+        df=df[3000<df[CoapplicantIncome]<=6000]
+    elif choice_Coapp==10000:
+        df=df[6000<df[CoapplicantIncome]<=10000]
+    else:
+        df=df[df[CoapplicantIncome]>10000]
+    df_success=df[df[Loan_Status]=1].shape[0]
+    df_all=df.shape[0]
+    df_how=df_success/df_all
+    st.text("The probability of your loan success is:"+str(df_how))
+    st.dataframe(df)
+
 #Author:Tianqi Liu
 #To show the mean/max/min value of ApplicantIncome/CoapplicantIncome/LoanAmount under the selection of whether it is succesfully loaned.
 def page_question2():
@@ -179,7 +213,7 @@ def main():
     session_state=st.session_state
     if 'page' not in session_state:
         session_state['page']='Home'
-    page=st.sidebar.radio('Navigate',['Home','Plot_bar','Plot_box','Plot_pie','Plot_heatmap','LiuYanLin_pie','LiuTianqi'])
+    page=st.sidebar.radio('Navigate',['Home','Plot_bar','Plot_box','Plot_pie','Plot_heatmap','LiuYanLin_pie','LiuTianqi','HuXintong'])
     #to implement multi-pages
     if page=='Home':
         page_home()
@@ -195,4 +229,6 @@ def main():
         plot_pei_LiuYanLin()    
     elif page=='LiuTianqi':
         page_question2()
+    elif page=='HuXintong':
+        Page_selected()
 main()
