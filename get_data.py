@@ -15,6 +15,7 @@ def select_data(size=1,is_graduate=None,is_married=None,is_female=None,is_self_e
     df=df[df.columns if is_urban==None else df['Is_urban']==is_urban]
     df=df[df.columns if credit_history==None else df['Credit_History']==credit_history]
 
+#Author:Tianqi Liu
 def select_Loan_Status(x=None)
     df=get_all_data()
     df=df[df.columns if x==None else df['Loan_Status']==x]
