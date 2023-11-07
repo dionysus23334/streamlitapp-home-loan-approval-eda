@@ -15,7 +15,7 @@ import get_data
 def Page_selected():
     st.text("Choose your situation")
     df=wash_data.wash_data()
-    choice_App=st.selectbox('Applicant Income',["<5000","<10,000","<15,000","<=20,000",">20,000"]
+    choice_App=st.selectbox('Applicant Income',["<5000","<10,000","<15,000","<=20,000",">20,000"])
     choice_App=choice_App.str.replace('[<>=,]','',regex=True).astype(float)
     if choice_App==5000:
         df=df[df[ApplicantIncome]<=5000]
@@ -27,7 +27,7 @@ def Page_selected():
         df=df[[15000<df[ApplicantIncome]<=20000]
     else:
         df=df[df[ApplicantIncome]>20000]
-    choice_Coapp=st.selectbox('CoApplicant Income',["0","<3000","<6000","<=10,000",">10,000"]
+    choice_Coapp=st.selectbox('CoApplicant Income',["0","<3000","<6000","<=10,000",">10,000"])
     choice_Coapp=choice_Coapp.str.replace('[<>=,]','',regex=True).astype(float)
     if choice_Coapp==0:
         df=df[df[CoapplicantIncome]=0]
@@ -44,6 +44,7 @@ def Page_selected():
     df_how=df_success/df_all
     st.text("The probability of your loan success is:"+str(df_how))
     st.dataframe(df)
+    return None
 
 #Author:Tianqi Liu
 #To show the mean/max/min value of ApplicantIncome/CoapplicantIncome/LoanAmount under the selection of whether it is succesfully loaned.
