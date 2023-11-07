@@ -11,6 +11,24 @@ import streamlit as st
 import wash_data
 import get_data
 
+#Author:Tianqi Liu
+#To show the mean/max/min value of ApplicantIncome/CoapplicantIncome/LoanAmount under the selection of whether it is succesfully loaned.
+def page_question2():
+    st.title('question2')
+    info=[0,1]
+    select_loan=st.selectbox('Please enter whether the applicant has successfully borrowed (0 represents unsuccessful, 1 represents successful) ',info.columns.tolist())
+    df_selected_new=get_data.select_Loan_Status(select_loan)
+    info2=['ApplicantIncome','CoapplicantIncome','LoanAmount']
+    select_line=st.selectbox('Please enter the data you want to view',info2.columns.tolist())
+    mean=df_select_new[select_line].mean()
+    min=df_select_new[select_line].min()
+    max=df_select_new[select_line].min()
+    data = {'mean': [mean],
+        'min': [min],
+        'max': [max]}
+    df = pd.DataFrame(data)
+    st.write(df)
+
 #Author:Yuxi Guo
 def data_selected():
     '''
@@ -161,7 +179,7 @@ def main():
     session_state=st.session_state
     if 'page' not in session_state:
         session_state['page']='Home'
-    page=st.sidebar.radio('Navigate',['Home','Plot_bar','Plot_box','Plot_pie','Plot_heatmap','LiuYanLin_pie'])
+    page=st.sidebar.radio('Navigate',['Home','Plot_bar','Plot_box','Plot_pie','Plot_heatmap','LiuYanLin_pie','LiuTianqi'])
     #to implement multi-pages
     if page=='Home':
         page_home()
@@ -175,4 +193,6 @@ def main():
         page_plot_heatmap()
     elif page=='LiuYanlin_pie':
         plot_pei_LiuYanLin()    
+    elif page=='LiuTianqi':
+        page_question2()
 main()
