@@ -45,8 +45,11 @@ def Page_selected():
         df=df[df['CoapplicantIncome']>10000]
     df_success=df[df['Loan_Status']==1].shape[0]
     df_all=df.shape[0]
-    df_how=df_success/df_all
-    st.text("The probability of your loan success is:"+str(df_how))
+    if df_all==0:
+        st.text("empty dataset")
+        return None
+    df_how=df_success*100/df_all
+    st.text("The probability of your loan success is:"+str(df_how)+"%")
     st.dataframe(df)
     return None
 
