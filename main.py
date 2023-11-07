@@ -34,9 +34,9 @@ def page_home():
     df_selected = data_selected() 
     # Display the welcome message in the center, bold, and larger font 
     st.markdown("<h1 style='text-align: center; color: black; font-size: 2em; font-weight: bold;'>Welcome to our app</h1>", unsafe_allow_html=True) # Display the DataFrame below the welcome message 
-    st.dataframe(df_selected) # Display the introduction text 
     st.markdown("<h2 style='font-weight: bold;'>APP Introduction:</h2>\n" "After analyzing the customer's own information, the customer will judge the likelihood of the success of the loan based on our analysis results.", unsafe_allow_html=True) 
     st.markdown("<h2 style='font-weight: bold;'>Dataset Source:</h2>\n" "About the company Dream Housing Finance Corporation. They have a presence in all urban, semi-urban and rural areas. They would like to present the relevant charts based on the details of the customer provided when filling out the online application form. These details include the borrower's gender, marital status, educational background, employment situation, income situation, co-applicant income, loan amount required, repayment time, number of loans, place of residence, etc. Here, they provide a partial data set.", unsafe_allow_html=True) 
+    st.dataframe(df_selected) # Display the introduction text 
     return None
 
 #Author:Yuxi Guo
