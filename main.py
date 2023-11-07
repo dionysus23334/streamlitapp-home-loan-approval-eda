@@ -1,4 +1,7 @@
-
+from pyecharts import options as opts
+from pyecharts.charts import Pie
+from pyecharts.commons.utils import JsCode
+from streamlit_echarts import st_pyecharts
 import seaborn as sns
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
@@ -147,6 +150,7 @@ def plot_pei_LiuYanLin():
     )
     # 在Streamlit中渲染饼图
     st_pyecharts(pie_chart)
+
 
 #Author:Yuxi Guo
 def main():
