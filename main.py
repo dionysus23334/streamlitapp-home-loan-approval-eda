@@ -48,10 +48,8 @@ def page_question2():
     data = {'mean': [mean],
         'min': [min],
         'max': [max]}
-
-df = pd.DataFrame(data)
-
-st.write(df)
+    df = pd.DataFrame(data)
+    st.write(df)
 
     
     
