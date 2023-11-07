@@ -30,6 +30,7 @@ def data_selected():
 def page_home():
     df_selected=data_selected()
     st.dataframe(df_selected)
+    st.write('asdfghjkl')
     return None
 
 #Author:Yuxi Guo
