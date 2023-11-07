@@ -1,7 +1,7 @@
-from pyecharts import options as opts
-from pyecharts.charts import Pie
-from pyecharts.commons.utils import JsCode
-from streamlit_echarts import st_pyecharts
+# from pyecharts import options as opts
+# from pyecharts.charts import Pie
+# from pyecharts.commons.utils import JsCode
+# from streamlit_echarts import st_pyecharts
 import seaborn as sns
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
@@ -30,10 +30,13 @@ def data_selected():
 
 #Author:Yuxi Guo
 #To implement the home page and make our dataset visible.
-def page_home():
-    df_selected=data_selected()
-    st.dataframe(df_selected)
-    st.write('asdfghjkl')
+def page_home(): 
+    df_selected = data_selected() 
+    # Display the welcome message in the center, bold, and larger font 
+    st.markdown("<h1 style='text-align: center; color: black; font-size: 2em; font-weight: bold;'>Welcome to our app</h1>", unsafe_allow_html=True) # Display the DataFrame below the welcome message 
+    st.dataframe(df_selected) # Display the introduction text 
+    st.markdown("<h2 style='font-weight: bold;'>APP Introduction:</h2>\n" "After analyzing the customer's own information, the customer will judge the likelihood of the success of the loan based on our analysis results.", unsafe_allow_html=True) 
+    st.markdown("<h2 style='font-weight: bold;'>Dataset Source:</h2>\n" "About the company Dream Housing Finance Corporation. They have a presence in all urban, semi-urban and rural areas. They would like to present the relevant charts based on the details of the customer provided when filling out the online application form. These details include the borrower's gender, marital status, educational background, employment situation, income situation, co-applicant income, loan amount required, repayment time, number of loans, place of residence, etc. Here, they provide a partial data set.", unsafe_allow_html=True) 
     return None
 
 #Author:Yuxi Guo
@@ -110,46 +113,46 @@ def page_plot_heatmap():
     st.pyplot(fig)
     return None
 
-def plot_pei_LiuYanLin():
-    # 设置图表样式
-    plt.style.use("ggplot")
-    # 获取筛选后的数据
-    df_selected = data_selected()
-    # 用户选择分类方式
-    choice_x = st.selectbox('选择分类方式', df_selected.columns.tolist())
-    # 分组数据
-    df_grouped = df_selected.groupby(choice_x).size().reset_index(name='counts')
-    # 判断数据集是否为空
-    if df_grouped.empty:
-        st.text('您选择的数据集为空，请取消一些选择器。')
-        return None
-    # 构造饼图数据
-    data_pair = [list(z) for z in zip(df_grouped[choice_x], df_grouped['counts'])]
-    # 创建饼图
-    pie_chart = (
-        Pie(init_opts=opts.InitOpts(bg_color="#2c3e50"))  # 可以设置背景色等初始化选项
-        .add(
-            series_name="贷款状态",
-            data_pair=data_pair,
-            radius=["40%", "75%"],
-            label_opts=opts.LabelOpts(
-                position="outside",
-                formatter="{b|{b}: }{c}  ({d}%)",
-                background_color="#eee",
-                border_color="#aaa",
-                border_width=1,
-                border_radius=4,
-                rich={
-                    "b": {"fontSize": 16, "lineHeight": 33},
-                    "per": {"color": "#eee", "backgroundColor": "#334455", "padding": [2, 4], "borderRadius": 2},
-                },
-            ),
-        )
-        .set_global_opts(title_opts=opts.TitleOpts(title="Pie-基本示例"))
-        .set_series_opts(label_opts=opts.LabelOpts(formatter=JsCode("function(x){return x.data.name + ': ' + x.data.value;}")))
-    )
-    # 在Streamlit中渲染饼图
-    st_pyecharts(pie_chart)
+# def plot_pei_LiuYanLin():
+#     # 设置图表样式
+#     plt.style.use("ggplot")
+#     # 获取筛选后的数据
+#     df_selected = data_selected()
+#     # 用户选择分类方式
+#     choice_x = st.selectbox('选择分类方式', df_selected.columns.tolist())
+#     # 分组数据
+#     df_grouped = df_selected.groupby(choice_x).size().reset_index(name='counts')
+#     # 判断数据集是否为空
+#     if df_grouped.empty:
+#         st.text('您选择的数据集为空，请取消一些选择器。')
+#         return None
+#     # 构造饼图数据
+#     data_pair = [list(z) for z in zip(df_grouped[choice_x], df_grouped['counts'])]
+#     # 创建饼图
+#     pie_chart = (
+#         Pie(init_opts=opts.InitOpts(bg_color="#2c3e50"))  # 可以设置背景色等初始化选项
+#         .add(
+#             series_name="贷款状态",
+#             data_pair=data_pair,
+#             radius=["40%", "75%"],
+#             label_opts=opts.LabelOpts(
+#                 position="outside",
+#                 formatter="{b|{b}: }{c}  ({d}%)",
+#                 background_color="#eee",
+#                 border_color="#aaa",
+#                 border_width=1,
+#                 border_radius=4,
+#                 rich={
+#                     "b": {"fontSize": 16, "lineHeight": 33},
+#                     "per": {"color": "#eee", "backgroundColor": "#334455", "padding": [2, 4], "borderRadius": 2},
+#                 },
+#             ),
+#         )
+#         .set_global_opts(title_opts=opts.TitleOpts(title="Pie-基本示例"))
+#         .set_series_opts(label_opts=opts.LabelOpts(formatter=JsCode("function(x){return x.data.name + ': ' + x.data.value;}")))
+#     )
+#     # 在Streamlit中渲染饼图
+#     st_pyecharts(pie_chart)
 
 
 #Author:Yuxi Guo
