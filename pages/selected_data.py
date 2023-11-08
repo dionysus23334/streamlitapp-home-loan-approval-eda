@@ -7,7 +7,6 @@ def page1():
     This section is to get the dataset selected and transfer the dataset to plots function that works in different pages.
     '''
     x = st.sidebar.slider('The size of data:', 0.0, 1.0, 1.0, 0.01)
-    df = wash_data.wash_data()
     is_graduate = st.sidebar.selectbox('Graduate', [None, True, False])
     is_married = st.sidebar.selectbox('Married', [None, True, False])
     is_female = st.sidebar.selectbox('Female', [None, True, False])
