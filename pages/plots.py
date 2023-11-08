@@ -300,6 +300,7 @@ Therefore, if you wants to analyze the advantages and disadvantages of your own 
 def plots():
     st.balloons()
     #This section is to implement the control flow of our app, where the pages designing are implemented.
+    st.sidebar.markdown('# Query')
     session_state=st.session_state
     if 'page' not in session_state:
         session_state['page']='Home'
