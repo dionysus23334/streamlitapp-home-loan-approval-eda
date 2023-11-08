@@ -99,6 +99,7 @@ def page_plot_pie():
 #Author:Yuxi Guo
 #This function is to design the heatmap page and plot it with the dataset selected.
 def page_plot_heatmap():
+    st.title('Heat Map')
     plt.style.use("ggplot")
     fig,ax=plt.subplots()
     df_selected=data_selected()
