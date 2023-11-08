@@ -115,7 +115,44 @@ def page_plot_heatmap():
     ax.xaxis.set_major_locator(ticker.MultipleLocator(tick_spacing))
     ax.yaxis.set_major_locator(ticker.MultipleLocator(tick_spacing))
     ax.set_xticklabels(['']+variables)
-    ax.set_yticklabels(['']+labels)    
+    ax.set_yticklabels(['']+labels)
+    description='''
+    Heatmap：
+The heatmap specifically visualizes the correlation between various of variables in the loan approval dataset. The variables are analyzed for their correlation with the "Loan_Status" variable, which is our target variable. Overall, It allows for the interactive exploration and analysis of the loan approval dataset, enabling users to identify the variables with the strongest correlations to loan status and gain insights into the relationships between variables.
+The following step is to show the specific correlation analysis between the different variables with the LOAN STATUS.
+
+Credit History: The "Credit_History" variable is expected to have a strong positive correlation with "Loan_Status". A good credit history generally increases the chances of loan approval.
+
+Marital Status: The "Married" variable may have a moderate positive correlation with "Loan_Status". Married individuals may have more stable financial situations, which could positively impact loan approval.
+
+Education: The "Education" variable (specifically, being a graduate or not) could have a moderate positive correlation with "Loan_Status". Graduates may have better job prospects and higher incomes, increasing the likelihood of loan approval.
+
+Urban Property: The "Property_Area" variable (specifically, being in an urban area) may have a weak positive correlation with "Loan_Status". Urban areas often offer better employment opportunities, potentially influencing loan approval.
+
+Loan Amount: The "LoanAmount" variable may have a weak positive correlation with "Loan_Status". Higher loan amounts might indicate higher financial stability, which could increase the chances of loan approval.
+
+Gender: The "Gender" variable (specifically, being female) could have a weak correlation with "Loan_Status". However, further analysis is needed to determine the nature of this correlation.
+
+Applicant and Co-applicant Income: The "ApplicantIncome" and "CoapplicantIncome" variables here have a relatively weak positive correlation with "Loan_Status". Nevertheless, higher incomes might indicate better repayment capabilities, positively affecting loan approval.
+
+ Let's further analyze the correlation between "Loan_Status" and other variables for some specific combinations.
+
+Male Graduates who are Married:
+Credit History: It is expected that a good credit history will strongly positive correlate with "Loan_Status" in this group. A good credit history will likely increase the chances of loan approval.
+Urban Property: Being in an urban area have a moderate positive correlation with "Loan_Status" in this group. Urban areas often offer better job opportunities, which can positively influence loan approval.
+Loan Amount: The "LoanAmount" variable have a weak positive correlation with "Loan_Status" in this group. Higher loan amounts might indicate higher financial stability, which could increase the chances of loan approval for male graduates who are married.
+
+Female Graduates who are Unmarried:
+Credit History: The correlation between "Credit_History" and "Loan_Status" in this group may be stronger compared to other groups. A good credit history will likely have a significant positive impact on loan approval.
+Education: Being a graduate in this group have a moderate positive correlation with "Loan_Status". Graduates often have better job prospects, increasing the likelihood of loan approval.
+Applicant and Co-applicant Income: Higher incomes of both the applicant and co-applicant may have a stronger positive correlation with "Loan_Status" in this group. Higher incomes suggest better repayment capabilities, positively affecting loan approval.
+
+Applicants with Low Loan Amounts and Good Credit History:
+Marital Status: Being married have a weak positive correlation with "Loan_Status" in this group. Married individuals might have more stable financial situations, increasing the chances of loan approval.
+Education: The correlation between being a graduate and "Loan_Status" in this group might be weak. However, further analysis is needed to determine the exact relationship.
+Urban Property: Being in an urban area could have a weak positive correlation with "Loan_Status" in this group. Urban areas often provide better employment opportunities, potentially influencing loan approval.
+    '''
+    st.markdown(description)
     st.pyplot(fig)
     return None
     
