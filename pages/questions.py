@@ -80,7 +80,7 @@ def page_question2():
         'min': [min],
         'max': [max]}
         df = pd.DataFrame(data)
-        df=df.groupby['mean','min','max']
+        df=df.groupby(['mean','min','max'])
         st.bar_chart(df)
 
     
