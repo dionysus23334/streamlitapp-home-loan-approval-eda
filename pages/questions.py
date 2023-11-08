@@ -171,7 +171,8 @@ def page_question2():
         data = {'mean': [mean], 'min': [min], 'max': [max]}
         x = ['mean', 'min', 'max']
         y = [data['mean'][0], data['min'][0], data['max'][0]]
-        plt.bar(x, y)
+        fig,ax=plt.subplots()
+        ax.bar(x, y)
         plt.xlabel('Value')
         plt.ylabel('Data')
         plt.title('Data Distribution')
