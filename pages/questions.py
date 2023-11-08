@@ -4,24 +4,7 @@ import numpy as np
 import get_data
 import wash_data
 
-
-def page_question2():
-    st.title('question2')
-    info=[0,1]
-    select_loan=st.selectbox('Please enter whether the applicant has successfully borrowed (0 represents unsuccessful, 1 represents successful) ',info.columns.tolist())
-    df_selected_new=get_data.select_Loan_Status(select_loan)
-    info2=['ApplicantIncome','CoapplicantIncome','LoanAmount']
-    select_line=st.selectbox('Please enter the data you want to view',info2.columns.tolist())
-    mean=df_select_new[select_line].mean()
-    min=df_select_new[select_line].min()
-    max=df_select_new[select_line].min()
-    data = {'mean': [mean],
-        'min': [min],
-        'max': [max]}
-    df = pd.DataFrame(data)
-    st.write(df)
-
-def Page_selected():
+def page_question1():
     st.title("Problem 1")
     st.header("Please choose your situation")
     df=wash_data.wash_data()
@@ -74,8 +57,35 @@ def Page_selected():
     st.markdown("""The probability algorithm is based on the proportion of the successful number of databases to all eligible quantities. Therefore, due to the limitations of database data and the limited amount of data, the calculated results have limitations. This is only a reference for whether the applicant can successfully apply. The probability of reality varies greatly, please consider more based on individual circumstances.""")
     return None
 
+def page_question2():
+    st.title('question2')
+    info=[0,1]
+    select_loan=st.selectbox('Please enter whether the applicant has successfully borrowed (0 represents unsuccessful, 1 represents successful) ',info.columns.tolist())
+    df_selected_new=get_data.select_Loan_Status(select_loan)
+    info2=['ApplicantIncome','CoapplicantIncome','LoanAmount']
+    select_line=st.selectbox('Please enter the data you want to view',info2.columns.tolist())
+    mean=df_select_new[select_line].mean()
+    min=df_select_new[select_line].min()
+    max=df_select_new[select_line].min()
+    data = {'mean': [mean],
+        'min': [min],
+        'max': [max]}
+    df = pd.DataFrame(data)
+    st.write(df)
 
-
+def main():
+    #This section is to implement the control flow of our app, where the pages designing are implemented.
+    session_state=st.session_state
+    if 'page' not in session_state:
+        session_state['page']='Question1'
+    page=st.sidebar.radio('Navigate',['Question1','Question2'])
+    #to implement multi-pages
+    if page=='Question1':
+        page_question1()
+    elif page=='Question2':
+        page_question2()
+   
+main()
 
 
 
