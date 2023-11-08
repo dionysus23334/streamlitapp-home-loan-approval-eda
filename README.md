@@ -16,14 +16,14 @@ Our team used two versions in the process of building the APP. In order to show 
 ![version1_plot](https://github.com/dionysus23334/streamlitapp-home-loan-approval-eda/blob/main/version1_plot.jpg)
 
 ## Conclusion
-Revenue:/
+Revenue:/ 
 1. The wage demand for men with successful loan conditions is slightly higher than that of women
 2. Graduate loan success conditions have higher salary requirements than non-graduates
 3. The salary requirement of unmarried users is slightly higher than that of married users
 4. The wage demand of rural hukou users is slightly higher than that of urban hukou users
 5. The wage demand of the successful conditions of the loan for the entrepreneurial group is higher than that of the working group users
-6. The above conditions are similar to the relationship between the co-applicant's income/
-Loan Amount:/
+6. The above conditions are similar to the relationship between the co-applicant's income/ 
+Loan Amount:/ 
 1. Men usually have more money to borrow than women
 2. Graduates usually borrow more than non-graduates
 3. Married users can usually borrow more than unmarried people
