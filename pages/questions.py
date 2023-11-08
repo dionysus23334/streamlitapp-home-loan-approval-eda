@@ -73,15 +73,30 @@ def page_question2():
         mean=round(mean,2)
         min=df_select_new[select_line].min()
         max=df_select_new[select_line].max()
-        st.header("The mean value of "+select_line+" is:"+str(mean))
-        st.header("The minimum value of "+select_line+" is:"+str(min))
-        st.header("The maximum value of "+select_line+" is:"+str(max))
+        st.write("The mean value of "+select_line+" is:")
+        st.header(str(mean))
+        st.write("The minimum value of "+select_line+" is:")
+        st.header(str(min))
+        st.write("The maximum value of "+select_line+" is:")
+        st.header(str(max))
         data = {'mean': [mean],
         'min': [min],
         'max': [max]}
-        df = pd.DataFrame(data)
-        df=df.groupby(['mean','min','max'])
-        st.bar_chart(df)
+        data = {'mean': [100],  
+        'min': [80],  
+        'max': [120]}  
+  
+         labels = ['Value']  
+  
+         fig, ax = plt.subplots()  
+  
+         ax.bar(labels, data['mean'], color = 'blue') # mean bar  
+         ax.bar(labels, data['min'], bottom=data['mean'], color = 'y') # min bar  
+         ax.bar(labels, data['max'], bottom=data['mean'], color = 'r') # max bar  
+  
+         ax.legend(['mean', 'min', 'max'])  
+  
+         plt.show()
 
     
 
