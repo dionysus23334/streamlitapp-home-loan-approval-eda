@@ -8,6 +8,7 @@ This APP is committed to showing the relationship between various aspects and wh
 ## Dataset Source
 Home Loan Approval (loan_sanction_train.csv)\
 https://www.kaggle.com/datasets/rishikeshkonapure/home-loan-approval?select=loan_sanction_train.csv
+
 About the company Dream Housing Finance Corporation. They have a presence in all urban, semi-urban and rural areas. They would like to present the relevant charts based on the details of the customer provided when filling out the online application form. These details include the borrower's gender, marital status, educational background, employment situation, income situation, co-applicant income, loan amount required, repayment time, number of loans, place of residence, etc. Here, they provide a partial data set.
 
 ## The Process of Development
