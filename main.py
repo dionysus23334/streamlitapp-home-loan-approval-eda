@@ -24,11 +24,14 @@ def Page_selected():
     if choice_App==5000:
         df=df[df['ApplicantIncome']<=5000]
     elif choice_App==10000:
-        df=df[5000<df['ApplicantIncome']][df['ApplicantIncome']<=10000]
+        df=df[5000<df['ApplicantIncome']]
+        df=df[df['ApplicantIncome']<=10000]
     elif choice_App==15000:
-        df=df[10000<df['ApplicantIncome']][df['ApplicantIncome']<=15000]
+        df=df[10000<df['ApplicantIncome']]
+        df=df[df['ApplicantIncome']<=15000]
     elif choice_App==20000:
-        df=df[15000<df['ApplicantIncome']][df['ApplicantIncome']<=20000]
+        df=df[15000<df['ApplicantIncome']]
+        df=df[df['ApplicantIncome']<=20000]
     else:
         df=df[df['ApplicantIncome']>20000]
     choice_Coapp=st.selectbox('CoApplicant Income',["0","<3000","<6000","<=10000",">10000"])
@@ -38,11 +41,14 @@ def Page_selected():
     if choice_Coapp==0:
         df=df[df['CoapplicantIncome']==0]
     elif choice_Coapp==3000:
-        df=df[0<df['CoapplicantIncome']][df['CoapplicantIncome']<=3000]
+        df=df[0<df['CoapplicantIncome']]
+        df=df[df['CoapplicantIncome']<=3000]
     elif choice_Coapp==6000:
-        df=df[3000<df['CoapplicantIncome']][df['CoapplicantIncome']<=6000]
+        df=df[3000<df['CoapplicantIncome']]
+        df=df[df['CoapplicantIncome']<=6000]
     elif choice_Coapp==10000:
-        df=df[6000<df['CoapplicantIncome']][df['CoapplicantIncome']<=10000]
+        df=df[6000<df['CoapplicantIncome']]
+        df=df[df['CoapplicantIncome']<=10000]
     else:
         df=df[df['CoapplicantIncome']>10000]
     df_success=df[df['Loan_Status']==1].shape[0]
