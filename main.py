@@ -11,6 +11,7 @@ import streamlit as st
 import wash_data
 import get_data
 
+
 #Author:HuXintong
 #Create an interface where users can choose their own situation and obtain the probability of their loan success
 def Page_selected():
@@ -117,6 +118,12 @@ def page_home():
 def page_plot_bar():
     plt.style.use("ggplot")
     df_selected=data_selected()
+
+    st.markdown('# **Average value matters while making your own decision** ')
+    st.markdown('''
+    ### 🔔 Use `multi-select` to change the category
+    ''', unsafe_allow_html=True)
+    
     df_x=df_selected[['Is_Female','Is_graduate','Is_married','Is_urban','Is_self_employed','Loan_Status','Credit_History','Dependents']]
     df_y=df_selected.drop(['Is_Female','Is_graduate','Is_married','Is_urban','Is_self_employed','Loan_Status','Credit_History','Dependents','Loan_ID'],axis=1)
     choice_x=st.selectbox('x variable',df_x.columns.tolist())
@@ -132,6 +139,10 @@ def page_plot_bar():
 def page_plot_box():
     plt.style.use("ggplot")
     st.title('Boxplot')
+    
+    st.markdown('# **This page will tell you about the discreteness of the data** ')
+    st.markdown('# ***SEE WHERE U R AT 👀***')
+
     df_selected = data_selected().drop('Loan_ID',axis=1)
     df_x=df_selected[['Is_Female','Is_graduate','Is_married','Is_urban','Is_self_employed','Loan_Status','Credit_History','Dependents']]
     df_y=df_selected.drop(['Is_Female','Is_graduate','Is_married','Is_urban','Is_self_employed','Loan_Status','Credit_History','Dependents'],axis=1)
@@ -145,6 +156,12 @@ def page_plot_box():
 #This section is to design pie chart of our dataset.
 def page_plot_pie():
     plt.style.use("ggplot")
+
+    st.markdown('# **On this page, you can clearly understand the proportion of data in different categories** :thinking_face:')
+    st.markdown('''
+    ### 🔔 Use `multi-select` to change the category
+    ''', unsafe_allow_html=True)
+    
     df_selected = data_selected()
     df_x=df_selected[['Is_Female','Is_graduate','Is_married','Is_urban','Is_self_employed','Loan_Status','Credit_History','Dependents']]
     choice_x=st.selectbox('Ways to classify',df_x.columns.tolist())
@@ -185,47 +202,41 @@ def page_plot_heatmap():
     ax.set_yticklabels(['']+labels)    
     st.pyplot(fig)
     return None
+    
+#Author:Yanlin Liu
+def plot_pie_chart():
+    st.markdown("# **Don't know your loan success rate? 🤷‍♂️** ")
+    st.markdown('''
+    ### COME AND SEE !
+    ''', unsafe_allow_html=True)
+    df_selected = pd.read_csv('loan_sanction_train.csv')
+    image_path = 'image.png'  
+    st.image(image_path, caption='Caption for image', use_column_width=True)
+    
+    # 贷款状态映射到字符串标签
+    df_selected['Loan_Status'] = df_selected['Loan_Status'].map({'Y': 'Yes', 'N': 'No'})
+    # 用户选择地区类型
+    area_options = ['Urban', 'Semiurban', 'Rural']
+    selected_area = st.selectbox(' Choose where you live', area_options)
+    # 根据所选地区筛选数据
+    df_area_selected = df_selected[df_selected['Property_Area'] == selected_area]
+    
+    # 计算贷款状态的分布
+    loan_status_distribution = df_area_selected[['Loan_Status']].value_counts(normalize=True)
+    data_pair = [list(z) for z in zip(loan_status_distribution.index.tolist(), loan_status_distribution.values.tolist())]
 
-def plot_pei_LiuYanLin():
-    # 设置图表样式
-    plt.style.use("ggplot")
-    # 获取筛选后的数据
-    df_selected = data_selected()
-    # 用户选择分类方式
-    choice_x = st.selectbox('选择分类方式', df_selected.columns.tolist())
-    # 分组数据
-    df_grouped = df_selected.groupby(choice_x).size().reset_index(name='counts')
-    # 判断数据集是否为空
-    if df_grouped.empty:
-        st.text('您选择的数据集为空，请取消一些选择器。')
-        return None
-    # 构造饼图数据
-    data_pair = [list(z) for z in zip(df_grouped[choice_x], df_grouped['counts'])]
+    
     # 创建饼图
     pie_chart = (
-        Pie(init_opts=opts.InitOpts(bg_color="#2c3e50"))  # 可以设置背景色等初始化选项
-        .add(
-            series_name="贷款状态",
-            data_pair=data_pair,
-            radius=["40%", "75%"],
-            label_opts=opts.LabelOpts(
-                position="outside",
-                formatter="{b|{b}: }{c}  ({d}%)",
-                background_color="#eee",
-                border_color="#aaa",
-                border_width=1,
-                border_radius=4,
-                rich={
-                    "b": {"fontSize": 16, "lineHeight": 33},
-                    "per": {"color": "#eee", "backgroundColor": "#334455", "padding": [2, 4], "borderRadius": 2},
-                },
-            ),
-        )
-        .set_global_opts(title_opts=opts.TitleOpts(title="Pie-基本示例"))
-        .set_series_opts(label_opts=opts.LabelOpts(formatter=JsCode("function(x){return x.data.name + ': ' + x.data.value;}")))
+        Pie()
+        .add("", data_pair)
+        .set_global_opts(title_opts=opts.TitleOpts(title=f"{selected_area} Area Loan Approval Rates"))
+        .set_series_opts(label_opts=opts.LabelOpts(formatter="{b}: {c} ({d}%)"))
+        
     )
-    # 在Streamlit中渲染饼图
     st_pyecharts(pie_chart)
+    # 使用st_pyecharts在Streamlit中渲染饼图
+    return None
 
 
 #Author:Yuxi Guo
