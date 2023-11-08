@@ -12,8 +12,10 @@ import wash_data
 import get_data
 
 #Author:HuXintong
+#Create an interface where users can choose their own situation and obtain the probability of their loan success
 def Page_selected():
-    st.text("Choose your situation")
+    st.title("Problem 1")
+    st.header("Please choose your situation")
     df=wash_data.wash_data()
     choice_App=st.selectbox('Applicant Income',["<5000","<10000","<15000","<=20000",">20000"])
     choice_App=(choice_App.replace('<',''))
@@ -49,7 +51,11 @@ def Page_selected():
         st.text("empty dataset")
         return None
     df_how=df_success*100/df_all
-    st.text("The probability of your loan success is:"+str(df_how)+"%")
+    df_how2=format(df_how,'.2f')
+    if df_how2>80:
+        st.balloons()
+    st.header("The probability of your loan success is:"+str(df_how2)+"%")
+    st.text("Here are samples of this situation from existing data")
     st.dataframe(df)
     return None
 
