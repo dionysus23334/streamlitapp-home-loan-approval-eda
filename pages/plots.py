@@ -129,20 +129,20 @@ def plot_pie_chart():
     image_path = 'image.png'  
     st.image(image_path, caption='Caption for image', use_column_width=True)
     
-    # 贷款状态映射到字符串标签
+    # mapping the loan status to a string label
     df_selected['Loan_Status'] = df_selected['Loan_Status'].map({'Y': 'Yes', 'N': 'No'})
-    # 用户选择地区类型
+    # choose property area
     area_options = ['Urban', 'Semiurban', 'Rural']
     selected_area = st.selectbox(' Choose where you live', area_options)
-    # 根据所选地区筛选数据
+    # filtering dataset
     df_area_selected = df_selected[df_selected['Property_Area'] == selected_area]
     
-    # 计算贷款状态的分布
+    # calculate distribution
     loan_status_distribution = df_area_selected[['Loan_Status']].value_counts(normalize=True)
     data_pair = [list(z) for z in zip(loan_status_distribution.index.tolist(), loan_status_distribution.values.tolist())]
 
     
-    # 创建饼图
+    # create pie chart
     pie_chart = (
         Pie()
         .add("", data_pair)
@@ -150,8 +150,9 @@ def plot_pie_chart():
         .set_series_opts(label_opts=opts.LabelOpts(formatter="{b}: {c} ({d}%)"))
         
     )
+    # rending pie chart
     st_pyecharts(pie_chart)
-    # 使用st_pyecharts在Streamlit中渲染饼图
+    # 
     return None
 
 #Author:Yuxi Guo
