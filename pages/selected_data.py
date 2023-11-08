@@ -16,6 +16,6 @@ def page1():
     credit_history = st.sidebar.selectbox('Credit_History', [None, True, False])
     df_selected = get_data.select_data(x, is_graduate, is_married, is_female, is_self_employed, is_urban,
                                        credit_history)
-    st.dataframe(dt_selected)
+    st.dataframe(df_selected)
     return df_selected
 page1()
