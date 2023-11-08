@@ -119,7 +119,9 @@ def page_plot_heatmap():
     ax.set_xticklabels(['']+variables)
     ax.set_yticklabels(['']+labels)
 
-    if st.checkbox('Heatmap'):
+    st.pyplot(fig)
+    x_1=st.checkbox('Heatmap')
+    if x_1:
        st.markdown('''
         Heatmap：
         The heatmap specifically visualizes the correlation between various of variables in the loan approval dataset. The variables are analyzed for their correlation with the "Loan_Status" variable, which is our target variable. Overall, It allows for the interactive exploration and analysis of the loan approval dataset, enabling users to identify the variables with the strongest correlations to loan status and gain insights into the relationships between variables.
@@ -157,7 +159,6 @@ def page_plot_heatmap():
     Education: The correlation between being a graduate and "Loan_Status" in this group might be weak. However, further analysis is needed to determine the exact relationship.
     Urban Property: Being in an urban area could have a weak positive correlation with "Loan_Status" in this group. Urban areas often provide better employment opportunities, potentially influencing loan approval.
         ''')
-    st.pyplot(fig)
    
     return None
     
