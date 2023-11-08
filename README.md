@@ -21,7 +21,8 @@ This APP is committed to showing the relationship between various aspects and wh
 * The main page of the page is selected by the "Navigate" block. The "home" page is a brief introduction to the app and the publication of our dataset. The "Plot" page is a display of charts, and there are also blocks on the charts for users to select conditions, so as to show the data analysis graphs that users need in more detail. On the rest of the pages, there will be detailed questions that are of common interest to users, and users can follow the page introduction and get some data sheets.\
 The following is the introduction of the second version: (The second version is the completed version of our APP, and the detailed page can be directly viewed with our APP)
 The second version is an improvement over the first version, the second version has three more pages than the first version, a total of four pages, users can choose what they want to know according to the page blocks on the sidebar, which is more intuitive and clear than the first version, and we have added the result analysis of the data, which can better help users judge whether they are likely to succeed in the loan.\
-Finally, here's what we do in the group (names in alphabetical order)\
+
+* Finally, here's what we do in the group (names in alphabetical order)\
 Junjie Zheng completed plot-heatmap,questions, loan success rate data result analysis and text filling\
 Tangyu Guo completes the analysis of the data results of home, plot-bar, plot-box, plot-pie and the text filling and all the editing of the readme section\
 Tianqi Liu completes question2 Code editing for the page\
