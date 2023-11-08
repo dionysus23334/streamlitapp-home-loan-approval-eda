@@ -57,12 +57,13 @@ def Page_selected():
         st.text("empty dataset")
         return None
     df_how=df_success*100/df_all
-    df_how2=format(df_how,'.2f')
-    if float(df_how2)>80:
+    if float(df_how)>60:
         st.balloons()
+    df_how2=format(df_how,'.2f')   
     st.header("The probability of your loan success is:"+str(df_how2)+"%")
     st.text("Here are samples of this situation from existing data")
     st.dataframe(df)
+    st.text("The probability algorithm is based on the proportion of the successful number of databases to all eligible quantities. Therefore, due to the limitations of database data and the limited amount of data, the calculated results have limitations. This is only a reference for whether the applicant can successfully apply. The probability of reality varies greatly, please consider more based on individual circumstances.")
     return None
 
 #Author:Tianqi Liu
