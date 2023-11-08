@@ -168,22 +168,13 @@ def page_question2():
         st.header(str(min))
         st.write("The maximum value of "+select_line+" is:")
         st.header(str(max))
-        data = {'mean': [mean],
-        'min': [min],
-        'max': [max]}
-        data = {'mean': [100],  
-        'min': [80],  
-        'max': [120]}  
-        
-        labels = ['Value']  
-        
-        fig, ax = plt.subplots()  
-        
-        ax.bar(labels, data['mean'], color = 'blue') # mean bar  
-        ax.bar(labels, data['min'], bottom=data['mean'], color = 'y') # min bar  
-        ax.bar(labels, data['max'], bottom=data['mean'], color = 'r') # max bar  
-        
-        ax.legend(['mean', 'min', 'max'])  
+        data = {'mean': [mean], 'min': [min], 'max': [max]}
+        x = ['mean', 'min', 'max']
+        y = [data['mean'][0], data['min'][0], data['max'][0]]
+        plt.bar(x, y)
+        plt.xlabel('Value')
+        plt.ylabel('Data')
+        plt.title('Data Distribution')
         
         st.pyplot(fig)
 
