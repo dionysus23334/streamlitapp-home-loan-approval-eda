@@ -14,3 +14,20 @@ About the company Dream Housing Finance Corporation. They have a presence in all
 Our team used two versions in the process of building the APP. In order to show the completeness of the team work, we will briefly introduce the two versions of our app before and after. The following is the completed version of our first version:
 ![version1_homepage](https://github.com/dionysus23334/streamlitapp-home-loan-approval-eda/blob/main/version1_Home_page.jpg)
 ![version1_plot](https://github.com/dionysus23334/streamlitapp-home-loan-approval-eda/blob/main/version1_plot.jpg)
+
+## Conlusion
+Revenue:
+1. The wage demand for men with successful loan conditions is slightly higher than that of women
+2. Graduate loan success conditions have higher salary requirements than non-graduates
+3. The salary requirement of unmarried users is slightly higher than that of married users
+4. The wage demand of rural hukou users is slightly higher than that of urban hukou users
+5. The wage demand of the successful conditions of the loan for the entrepreneurial group is higher than that of the working group users
+6. The above conditions are similar to the relationship between the co-applicant's income
+Loan Amount:
+1. Men usually have more money to borrow than women
+2. Graduates usually borrow more than non-graduates
+3. Married users can usually borrow more than unmarried people
+4. Rural accounts usually have more borrowing amounts than urban accounts
+5. Entrepreneurs usually have more borrowing money than working people
+6. People who do not have a loan record usually have more borrowing amount than users who have a record
+7. The above conditions are similar to the relationship between the borrowing time and the duration of the loan
