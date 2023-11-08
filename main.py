@@ -246,7 +246,7 @@ def main():
         page_plot_pie()
     elif page=='Plot_heatmap':
         page_plot_heatmap()
-    elif page=='LiuYanlin_pie':
+    elif page=='LiuYanLin_pie':
         plot_pei_LiuYanLin()    
     elif page=='LiuTianqi':
         page_question2()
