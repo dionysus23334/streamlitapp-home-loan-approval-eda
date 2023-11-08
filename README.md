@@ -10,7 +10,7 @@ Home Loan Approval (loan_sanction_train.csv)\
 https://www.kaggle.com/datasets/rishikeshkonapure/home-loan-approval?select=loan_sanction_train.csv
 About the company Dream Housing Finance Corporation. They have a presence in all urban, semi-urban and rural areas. They would like to present the relevant charts based on the details of the customer provided when filling out the online application form. These details include the borrower's gender, marital status, educational background, employment situation, income situation, co-applicant income, loan amount required, repayment time, number of loans, place of residence, etc. Here, they provide a partial data set.
 
-## The process of Development
+## The Process of Development
 Our team used two versions in the process of building the APP. In order to show the completeness of the team work, we will briefly introduce the two versions of our app before and after. The following is the completed version of our first version:
 ![version1_homepage](https://github.com/dionysus23334/streamlitapp-home-loan-approval-eda/blob/main/version1_Home_page.jpg)
 ![version1_plot](https://github.com/dionysus23334/streamlitapp-home-loan-approval-eda/blob/main/version1_plot.jpg)
