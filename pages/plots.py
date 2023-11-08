@@ -118,26 +118,29 @@ def page_plot_heatmap():
     ax.yaxis.set_major_locator(ticker.MultipleLocator(tick_spacing))
     ax.set_xticklabels(['']+variables)
     ax.set_yticklabels(['']+labels)
-    description='''
+
+    if st.checkbox('Heatmap'):
+       st.markdown('''
         Heatmap：
-    The heatmap specifically visualizes the correlation between various of variables in the loan approval dataset. The variables are analyzed for their correlation with the "Loan_Status" variable, which is our target variable. Overall, It allows for the interactive exploration and analysis of the loan approval dataset, enabling users to identify the variables with the strongest correlations to loan status and gain insights into the relationships between variables.
-    The following step is to show the specific correlation analysis between the different variables with the LOAN STATUS.
+        The heatmap specifically visualizes the correlation between various of variables in the loan approval dataset. The variables are analyzed for their correlation with the "Loan_Status" variable, which is our target variable. Overall, It allows for the interactive exploration and analysis of the loan approval dataset, enabling users to identify the variables with the strongest correlations to loan status and gain insights into the relationships between variables.
+        The following step is to show the specific correlation analysis between the different variables with the LOAN STATUS.''')
+    elif st.checkbox('Credit History'):
     
-    Credit History: The "Credit_History" variable is expected to have a strong positive correlation with "Loan_Status". A good credit history generally increases the chances of loan approval.
-    
-    Marital Status: The "Married" variable may have a moderate positive correlation with "Loan_Status". Married individuals may have more stable financial situations, which could positively impact loan approval.
-    
-    Education: The "Education" variable (specifically, being a graduate or not) could have a moderate positive correlation with "Loan_Status". Graduates may have better job prospects and higher incomes, increasing the likelihood of loan approval.
-    
-    Urban Property: The "Property_Area" variable (specifically, being in an urban area) may have a weak positive correlation with "Loan_Status". Urban areas often offer better employment opportunities, potentially influencing loan approval.
-    
-    Loan Amount: The "LoanAmount" variable may have a weak positive correlation with "Loan_Status". Higher loan amounts might indicate higher financial stability, which could increase the chances of loan approval.
-    
-    Gender: The "Gender" variable (specifically, being female) could have a weak correlation with "Loan_Status". However, further analysis is needed to determine the nature of this correlation.
-    
-    Applicant and Co-applicant Income: The "ApplicantIncome" and "CoapplicantIncome" variables here have a relatively weak positive correlation with "Loan_Status". Nevertheless, higher incomes might indicate better repayment capabilities, positively affecting loan approval.
-    
-     Let's further analyze the correlation between "Loan_Status" and other variables for some specific combinations.
+       st.markdown( 'The "Credit_History" variable is expected to have a strong positive correlation with "Loan_Status". A good credit history generally increases the chances of loan approval.')
+    elif st.checkbox('Marital Status'):    
+       st.markdown('The "Married" variable may have a moderate positive correlation with "Loan_Status". Married individuals may have more stable financial situations, which could positively impact loan approval.')
+    elif st.checkdown('Education'):
+       st.markdown(' The "Education" variable (specifically, being a graduate or not) could have a moderate positive correlation with "Loan_Status". Graduates may have better job prospects and higher incomes, increasing the likelihood of loan approval.')
+    elif st.checkdown('Urban Property'):
+       st.markdown('The "Property_Area" variable (specifically, being in an urban area) may have a weak positive correlation with "Loan_Status". Urban areas often offer better employment opportunities, potentially influencing loan approval.')
+    elif st.checkdown('Loan Amount'):
+       st.markdown(' The "LoanAmount" variable may have a weak positive correlation with "Loan_Status". Higher loan amounts might indicate higher financial stability, which could increase the chances of loan approval.')
+    elif st.checkdown('Gender'):
+       st.markdown('The "Gender" variable (specifically, being female) could have a weak correlation with "Loan_Status". However, further analysis is needed to determine the nature of this correlation.')
+    elif st.checkdown('Applicantand Co-applicant Income'):
+       st.markdown('  The "ApplicantIncome" and "CoapplicantIncome" variables here have a relatively weak positive correlation with "Loan_Status". Nevertheless, higher incomes might indicate better repayment capabilities, positively affecting loan approval.')
+    elif st.checkdown('correlation between "Loan_Status" and other variables'):
+       st.markdown('''Let's further analyze the correlation between "Loan_Status" and other variables for some specific combinations.
     
     Male Graduates who are Married:\
     Credit History: It is expected that a good credit history will strongly positive correlate with "Loan_Status" in this group. A good credit history will likely increase the chances of loan approval.
@@ -153,9 +156,9 @@ def page_plot_heatmap():
     Marital Status: Being married have a weak positive correlation with "Loan_Status" in this group. Married individuals might have more stable financial situations, increasing the chances of loan approval.
     Education: The correlation between being a graduate and "Loan_Status" in this group might be weak. However, further analysis is needed to determine the exact relationship.
     Urban Property: Being in an urban area could have a weak positive correlation with "Loan_Status" in this group. Urban areas often provide better employment opportunities, potentially influencing loan approval.
-        '''
+        ''')
     st.pyplot(fig)
-    st.markdown(description)
+   
     return None
     
 #Author:Yanlin Liu
