@@ -179,7 +179,7 @@ def page_question2():
         st.pyplot(fig)
 
     
-
+#Author:Yuxi Guo
 def main():
     st.balloons()
     #This section is to implement the control flow of our app, where the pages designing are implemented.
