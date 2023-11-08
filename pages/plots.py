@@ -104,7 +104,7 @@ def page_plot_heatmap():
     fig,ax=plt.subplots()
     df_selected=data_selected()
     df=df_selected.drop(['Loan_ID'],axis=1)
-    k=st.slider("The number of relative variables:",1,10,6,1)
+    k=st.slider("The number of relative variables:",1,10,7,1)
     cols=df.corr().abs().nlargest(k, 'Loan_Status')['Loan_Status'].index
     cm=df_selected[cols].corr()
     variables=cols.tolist()
