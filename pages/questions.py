@@ -60,20 +60,25 @@ def page_question1():
 #Author:Tianqi Liu
 #To show the mean/max/min value of ApplicantIncome/CoapplicantIncome/LoanAmount under the selection of whether it is succesfully loaned.
 def page_question2():
-    st.title('Question 2')
+    st.title('question2')
+    st.markdown("This section displays the distribution of three types of data: applicant income, coapplicant income, and applicant loan amount in the case of successful or unsuccessful borrowing. Quickly filter the conditions and click the button below!：sparkles:")
     info=[0,1]
     select_loan=st.selectbox('Please enter whether the applicant has successfully borrowed (0 represents unsuccessful, 1 represents successful) ',info)
     df_select_new=get_data.select_Loan_Status(select_loan)
     info2=['ApplicantIncome','CoapplicantIncome','LoanAmount']
     select_line=st.selectbox('Please enter the data you want to view',info2)
-    mean=df_select_new[select_line].mean()
-    min=df_select_new[select_line].min()
-    max=df_select_new[select_line].min()
-    data = {'mean': [mean],
+     if st.button("generate"):
+         mean=df_select_new[select_line].mean()
+         min=df_select_new[select_line].min()
+         max=df_select_new[select_line].max()
+         st.header("The mean value of "+select_line+" is:"+str(mean))
+         st.header("The minimum value of "+select_line+" is:"+str(min))
+         st.header("The minimum value of "+select_line+" is:"+str(max))
+         data = {'mean': [mean],
         'min': [min],
         'max': [max]}
-    df = pd.DataFrame(data)
-    st.write(df)
+        df = pd.DataFrame(data)
+        st.bar_chart(df)
 
     
 
