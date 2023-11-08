@@ -16,5 +16,5 @@ def page1():
     df_selected = get_data.select_data(x, is_graduate, is_married, is_female, is_self_employed, is_urban,
                                        credit_history)
     st.dataframe(df_selected)
-    return df_selected
+    return None
 page1()
