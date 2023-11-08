@@ -12,4 +12,4 @@ About the company Dream Housing Finance Corporation. They have a presence in all
 
 ## The process of Development
 Our team used two versions in the process of building the APP. In order to show the completeness of the team work, we will briefly introduce the two versions of our app before and after. The following is the completed version of our first version:
-
+<image scr='version1_Home_page.jpg' />
