@@ -152,8 +152,8 @@ def page_plot_heatmap():
     Education: The correlation between being a graduate and "Loan_Status" in this group might be weak. However, further analysis is needed to determine the exact relationship.
     Urban Property: Being in an urban area could have a weak positive correlation with "Loan_Status" in this group. Urban areas often provide better employment opportunities, potentially influencing loan approval.
         '''
-    st.markdown(description)
     st.pyplot(fig)
+    st.markdown(description)
     return None
     
 #Author:Yanlin Liu
