@@ -298,6 +298,7 @@ Therefore, if you wants to analyze the advantages and disadvantages of your own 
 
 #Author:Yuxi Guo
 def plots():
+    st.balloons()
     #This section is to implement the control flow of our app, where the pages designing are implemented.
     session_state=st.session_state
     if 'page' not in session_state:
