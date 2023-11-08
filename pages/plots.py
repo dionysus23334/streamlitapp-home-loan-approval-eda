@@ -160,11 +160,10 @@ def plots():
     session_state=st.session_state
     if 'page' not in session_state:
         session_state['page']='Home'
-    page=st.sidebar.radio('Navigate',['Home','Plot_bar','Plot_box','Plot_pie','Plot_heatmap','LiuYanLin_pie','LiuTianqi','HuXintong'])
+    page=st.sidebar.radio('Navigate',['Plot_bar','Plot_box','Plot_pie','Plot_heatmap','LiuYanLin_pie','LiuTianqi','HuXintong'])
     #to implement multi-pages
-    if page=='Home':
-        page_home()
-    elif page=='Plot_bar':
+    
+    if page=='Plot_bar':
         page_plot_bar()
     elif page=='Plot_box':
         page_plot_box()
