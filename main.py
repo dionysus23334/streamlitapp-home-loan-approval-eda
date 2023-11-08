@@ -258,7 +258,7 @@ def main():
     elif page=='Plot_heatmap':
         page_plot_heatmap()
     elif page=='LiuYanLin_pie':
-        plot_pei_LiuYanLin()    
+        plot_pie_chart()   
     elif page=='LiuTianqi':
         page_question2()
     elif page=='HuXintong':
