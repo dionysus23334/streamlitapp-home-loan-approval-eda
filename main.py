@@ -70,20 +70,20 @@ def Page_selected():
 #Author:Tianqi Liu
 #To show the mean/max/min value of ApplicantIncome/CoapplicantIncome/LoanAmount under the selection of whether it is succesfully loaned.
 def page_question2():
-    st.title('question2')
+    st.title('Problem2')
+    st.header("Information Collection")
     info=[0,1]
-    select_loan=st.selectbox('Please enter whether the applicant has successfully borrowed (0 represents unsuccessful, 1 represents successful) ',info.columns.tolist())
+    select_loan=st.selectbox('Please enter whether the applicant has successfully borrowed (0 represents unsuccessful, 1 represents successful) ',info)
     df_selected_new=get_data.select_Loan_Status(select_loan)
     info2=['ApplicantIncome','CoapplicantIncome','LoanAmount']
-    select_line=st.selectbox('Please enter the data you want to view',info2.columns.tolist())
+    select_line=st.selectbox('Please enter the data you want to view',info2)
     mean=df_select_new[select_line].mean()
     min=df_select_new[select_line].min()
-    max=df_select_new[select_line].min()
-    data = {'mean': [mean],
-        'min': [min],
-        'max': [max]}
-    df = pd.DataFrame(data)
-    st.write(df)
+    max=df_select_new[select_line].max()
+    st.header("The mean value of "+select_line+" is:"+str(mean=df_select_new[select_line].mean()))
+    st.header("The minimum value of "+select_line+" is:"+str(mean=df_select_new[select_line].min()))
+    st.header("The minimum value of "+select_line+" is:"+str(mean=df_select_new[select_line].max()))
+
 
 #Author:Yuxi Guo
 def data_selected():
