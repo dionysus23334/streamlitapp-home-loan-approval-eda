@@ -63,6 +63,34 @@ def wash_data():
     HomeLoansApproval['Dependents']=HomeLoansApproval['Dependents'].apply(lambda x:( (0 if x=='0' else 1) if x!='2' else 2 )if x!='3+' else 3)
     return HomeLoansApproval
     
+#Author:Yuxi Guo
+#This section is to make a function that can connect the parameters of widgets of app to our dataset and get the selected data. 
+def get_all_data():
+    return wash_data()
+
+#Author:Yuxi Guo
+def select_data(size=1,is_graduate=None,is_married=None,is_female=None,is_self_employed=None,is_urban=None,credit_history=None):
+    df=get_all_data()
+    df=df.head(int(len(df)*size))
+    df=df[df.columns if is_graduate==None else df['Is_graduate']==is_graduate]
+    df=df[df.columns if is_female==None else df['Is_Female']==is_female]
+    df=df[df.columns if is_self_employed==None else df['Is_self_employed']==is_self_employed]
+    df=df[df.columns if is_married==None else df['Is_married']==is_married]
+    df=df[df.columns if is_urban==None else df['Is_urban']==is_urban]
+    df=df[df.columns if credit_history==None else df['Credit_History']==credit_history]
+    return df
+
+#Author:Tianqi Liu
+def select_Loan_Status(x=None):
+    df=get_all_data()
+    df=df[df.columns if x==None else df['Loan_Status']==x]
+    return df
+
+#Author:Tianqi Liu
+def select_Loan_Status(x=None):
+    df=get_all_data()
+    df=df[df.columns if x==None else df['Loan_Status']==x]
+    return df
 
 def page_question1():
     st.title("Question 1")
@@ -125,7 +153,7 @@ def page_question2():
     st.write(':sparkles:'+':sparkles:'+':sparkles:'+':sparkles:'+':sparkles:'+':sparkles:'+':sparkles:')
     info=[0,1]
     select_loan=st.selectbox('Please enter whether the applicant has successfully borrowed (0 represents unsuccessful, 1 represents successful) ',info)
-    df_select_new=get_data.select_Loan_Status(select_loan)
+    df_select_new=select_Loan_Status(select_loan)
     info2=['ApplicantIncome','CoapplicantIncome','LoanAmount']
     select_line=st.selectbox('Please enter the data you want to view',info2)
     if st.button("generate"):
