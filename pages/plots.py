@@ -116,8 +116,7 @@ def page_plot_heatmap():
     ax.yaxis.set_major_locator(ticker.MultipleLocator(tick_spacing))
     ax.set_xticklabels(['']+variables)
     ax.set_yticklabels(['']+labels)
-    description=
-        '''
+    description='''
         Heatmap：
     The heatmap specifically visualizes the correlation between various of variables in the loan approval dataset. The variables are analyzed for their correlation with the "Loan_Status" variable, which is our target variable. Overall, It allows for the interactive exploration and analysis of the loan approval dataset, enabling users to identify the variables with the strongest correlations to loan status and gain insights into the relationships between variables.
     The following step is to show the specific correlation analysis between the different variables with the LOAN STATUS.
