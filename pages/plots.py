@@ -120,7 +120,6 @@ def data_selected():
 def page_plot_bar():
     plt.style.use("ggplot")
     df_selected=data_selected()
-
     st.markdown('# **Average value matters while making your own decision** ')
     st.markdown('''
     ### 🔔 Use `multi-select` to change the category
