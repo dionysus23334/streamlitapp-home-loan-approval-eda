@@ -176,7 +176,7 @@ def plot_pie_chart():
     st.markdown('''
     ### COME AND SEE !
     ''', unsafe_allow_html=True)
-    df_selected = data_selected()
+    df_selected = pd.read_csv('loan_sanction_train.csv')
     image_path = 'image.png'  
     st.image(image_path, caption='Caption for image', use_column_width=True)
     
