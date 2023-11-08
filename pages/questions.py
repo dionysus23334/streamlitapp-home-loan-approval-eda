@@ -92,6 +92,7 @@ def select_Loan_Status(x=None):
     df=df[df.columns if x==None else df['Loan_Status']==x]
     return df
 
+#Author:Xintong Hu
 def page_question1():
     st.title("Question 1")
     st.header("Please choose your situation")
