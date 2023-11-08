@@ -113,6 +113,29 @@ def page_home():
     st.dataframe(df_selected) # Display the introduction text 
     return None
 
+#Author:Tianqi Liu
+#To show the mean/max/min value of ApplicantIncome/CoapplicantIncome/LoanAmount under the selection of whether it is succesfully loaned.
+def page_question2():
+    st.title('question2')
+    info=[0,1]
+    select_loan=st.selectbox('Please enter whether the applicant has successfully borrowed (0 represents unsuccessful, 1 represents successful) ',info)
+    df_selected_new=get_data.select_Loan_Status(select_loan)
+    info2=['ApplicantIncome','CoapplicantIncome','LoanAmount']
+    select_line=st.selectbox('Please enter the data you want to view',info2)
+    mean=df_select_new[select_line].mean()
+    min=df_select_new[select_line].min()
+    max=df_select_new[select_line].min()
+    data = {'mean': [mean],
+        'min': [min],
+        'max': [max]}
+    df = pd.DataFrame(data)
+    st.write(df)
+
+    
+    
+    
+
+
 #Author:Yuxi Guo
 #To plot the mean value of the variables and make it visible in a bar plot.
 def page_plot_bar():
