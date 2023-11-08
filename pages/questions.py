@@ -62,7 +62,7 @@ def page_question1():
 def page_question2():
     st.title('Question 2')
     st.markdown("This section displays the distribution of three types of data: applicant income, coapplicant income, and applicant loan amount in the case of successful or unsuccessful borrowing. Quickly filter the conditions and click the button below!")
-    st.write('：sparkles:'+'：sparkles:'+'：sparkles:'+'：sparkles:'+'：sparkles:'+'：sparkles:'+'：sparkles:')
+    st.write(':sparkles:'+':sparkles:'+':sparkles:'+':sparkles:'+':sparkles:'+':sparkles:'+':sparkles:')
     info=[0,1]
     select_loan=st.selectbox('Please enter whether the applicant has successfully borrowed (0 represents unsuccessful, 1 represents successful) ',info)
     df_select_new=get_data.select_Loan_Status(select_loan)
