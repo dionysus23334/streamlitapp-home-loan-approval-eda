@@ -80,9 +80,7 @@ def page_question2():
     mean=df_select_new[select_line].mean()
     min=df_select_new[select_line].min()
     max=df_select_new[select_line].max()
-    st.header("The mean value of "+select_line+" is:"+str(mean=df_select_new[select_line].mean()))
-    st.header("The minimum value of "+select_line+" is:"+str(mean=df_select_new[select_line].min()))
-    st.header("The minimum value of "+select_line+" is:"+str(mean=df_select_new[select_line].max()))
+   
 
 
 #Author:Yuxi Guo
@@ -125,11 +123,15 @@ def page_question2():
     mean=df_select_new[select_line].mean()
     min=df_select_new[select_line].min()
     max=df_select_new[select_line].min()
+    st.header("The mean value of "+select_line+" is:"+str(mean=df_select_new[select_line].mean()))
+    st.header("The minimum value of "+select_line+" is:"+str(mean=df_select_new[select_line].min()))
+    st.header("The minimum value of "+select_line+" is:"+str(mean=df_select_new[select_line].max()))
     data = {'mean': [mean],
         'min': [min],
         'max': [max]}
     df = pd.DataFrame(data)
-    st.write(df)
+    st.bar_chart(df)
+    
 
     
     
