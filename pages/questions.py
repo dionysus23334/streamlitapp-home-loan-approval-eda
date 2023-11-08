@@ -85,18 +85,18 @@ def page_question2():
         data = {'mean': [100],  
         'min': [80],  
         'max': [120]}  
-  
-         labels = ['Value']  
-  
-         fig, ax = plt.subplots()  
-  
-         ax.bar(labels, data['mean'], color = 'blue') # mean bar  
-         ax.bar(labels, data['min'], bottom=data['mean'], color = 'y') # min bar  
-         ax.bar(labels, data['max'], bottom=data['mean'], color = 'r') # max bar  
-  
-         ax.legend(['mean', 'min', 'max'])  
-  
-         plt.show()
+        
+        labels = ['Value']  
+        
+        fig, ax = plt.subplots()  
+        
+        ax.bar(labels, data['mean'], color = 'blue') # mean bar  
+        ax.bar(labels, data['min'], bottom=data['mean'], color = 'y') # min bar  
+        ax.bar(labels, data['max'], bottom=data['mean'], color = 'r') # max bar  
+        
+        ax.legend(['mean', 'min', 'max'])  
+        
+        plt.show()
 
     
 
