@@ -6,7 +6,7 @@ This APP is committed to showing the relationship between various aspects and wh
 * The main page of the page is selected by the "Navigate" block. The "home" page is a brief introduction to the app and the publication of our dataset. The "Plot" page is a display of charts, and there are also blocks on the charts for users to select conditions, so as to show the data analysis graphs that users need in more detail. On the rest of the pages, there will be detailed questions that are of common interest to users, and users can follow the page introduction and get some data sheets.
 
 ## Dataset Source
-Home Loan Approval (loan_sanction_train.csv)
+Home Loan Approval (loan_sanction_train.csv)\
 https://www.kaggle.com/datasets/rishikeshkonapure/home-loan-approval?select=loan_sanction_train.csv
 About the company Dream Housing Finance Corporation. They have a presence in all urban, semi-urban and rural areas. They would like to present the relevant charts based on the details of the customer provided when filling out the online application form. These details include the borrower's gender, marital status, educational background, employment situation, income situation, co-applicant income, loan amount required, repayment time, number of loans, place of residence, etc. Here, they provide a partial data set.
 
