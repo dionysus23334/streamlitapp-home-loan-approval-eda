@@ -5,98 +5,10 @@ import get_data
 import wash_data
 import matplotlib.pyplot as plt
 
-#Author:Yuxi Guo
-#This section is to wash the data, making it more convenient for EDA. And I use some build-in functions to pad the nan value of data we chose.
-def is_graduate(x):
-    if x=='Graduate':
-        return 1
-    else:
-        return 0
-def is_female(x):
-    if x=='Female':
-        return 1
-    else:
-        return 0
-def is_married(x):
-    if x=='Yes':
-        return 1
-    else:
-        return 0
-def is_urban(x):
-    if x=='Urban':
-        return 1
-    else:
-        return 0
-def is_self_employed(x):
-    if x=='Yes':
-        return 1
-    else:
-        return 0    
-def Loan_Status_(x):
-    if x=='Y':
-        return 1
-    else:
-        return 0
-    
-def wash_data():
-    HomeLoansApproval=pd.read_csv('loan_sanction_train.csv')
-    #drop the data that has same ID
-    HomeLoansApproval=HomeLoansApproval.drop_duplicates(subset=['Loan_ID'])
-    #use subset to point out the columns whose nan values are deleted 
-    HomeLoansApproval.dropna(axis=0,how='any',subset=['Gender','Married','Dependents','Self_Employed','Credit_History'],inplace=True)
-    HomeLoansApproval_mean=HomeLoansApproval['LoanAmount'].fillna(value=HomeLoansApproval['LoanAmount'].mean(),inplace=False)
-    #median replacing
-    HomeLoansApproval_median=HomeLoansApproval['Loan_Amount_Term'].fillna(HomeLoansApproval['Loan_Amount_Term'].median(),inplace=False)
-    #replace the old series object with new series.
-    HomeLoansApproval=HomeLoansApproval.drop(labels=['LoanAmount','Loan_Amount_Term'],axis=1)
-    HomeLoansApproval['LoanAmount']=HomeLoansApproval_mean
-    HomeLoansApproval['Loan_Amount_Term']=HomeLoansApproval_median
-    HomeLoansApproval['Is_graduate']=HomeLoansApproval['Education'].apply(lambda x:is_graduate(x))
-    HomeLoansApproval['Is_Female']=HomeLoansApproval['Gender'].apply(lambda x:is_female(x))
-    HomeLoansApproval['Is_married']=HomeLoansApproval['Married'].apply(lambda x:is_married(x))
-    HomeLoansApproval['Is_urban']=HomeLoansApproval['Property_Area'].apply(lambda x:is_urban(x))
-    HomeLoansApproval['Is_self_employed']=HomeLoansApproval['Self_Employed'].apply(lambda x:is_self_employed(x))
-    HomeLoansApproval['Loan_Status_']=HomeLoansApproval['Loan_Status'].apply(lambda x:Loan_Status_(x))
-    Loan_Status=HomeLoansApproval['Loan_Status_']
-    HomeLoansApproval=HomeLoansApproval.drop(['Education','Gender','Married','Property_Area','Self_Employed','Loan_Status','Loan_Status_'],axis=1)
-    HomeLoansApproval['Loan_Status']=Loan_Status
-    HomeLoansApproval['Dependents']=HomeLoansApproval['Dependents'].apply(lambda x:( (0 if x=='0' else 1) if x!='2' else 2 )if x!='3+' else 3)
-    return HomeLoansApproval
-    
-#Author:Yuxi Guo
-#This section is to make a function that can connect the parameters of widgets of app to our dataset and get the selected data. 
-def get_all_data():
-    return wash_data()
-
-#Author:Yuxi Guo
-def select_data(size=1,is_graduate=None,is_married=None,is_female=None,is_self_employed=None,is_urban=None,credit_history=None):
-    df=get_all_data()
-    df=df.head(int(len(df)*size))
-    df=df[df.columns if is_graduate==None else df['Is_graduate']==is_graduate]
-    df=df[df.columns if is_female==None else df['Is_Female']==is_female]
-    df=df[df.columns if is_self_employed==None else df['Is_self_employed']==is_self_employed]
-    df=df[df.columns if is_married==None else df['Is_married']==is_married]
-    df=df[df.columns if is_urban==None else df['Is_urban']==is_urban]
-    df=df[df.columns if credit_history==None else df['Credit_History']==credit_history]
-    return df
-
-#Author:Tianqi Liu
-def select_Loan_Status(x=None):
-    df=get_all_data()
-    df=df[df.columns if x==None else df['Loan_Status']==x]
-    return df
-
-#Author:Tianqi Liu
-def select_Loan_Status(x=None):
-    df=get_all_data()
-    df=df[df.columns if x==None else df['Loan_Status']==x]
-    return df
-
-#Author:Xintong Hu
 def page_question1():
     st.title("Question 1")
     st.header("Please choose your situation")
-    df=wash_data()
+    df=wash_data.wash_data()
     choice_App=st.selectbox('Applicant Income',["<5000","<10000","<15000","<=20000",">20000"])
     choice_App=(choice_App.replace('<',''))
     choice_App=(choice_App.replace('=',''))
@@ -154,7 +66,7 @@ def page_question2():
     st.write(':sparkles:'+':sparkles:'+':sparkles:'+':sparkles:'+':sparkles:'+':sparkles:'+':sparkles:')
     info=[0,1]
     select_loan=st.selectbox('Please enter whether the applicant has successfully borrowed (0 represents unsuccessful, 1 represents successful) ',info)
-    df_select_new=select_Loan_Status(select_loan)
+    df_select_new=get_data.select_Loan_Status(select_loan)
     info2=['ApplicantIncome','CoapplicantIncome','LoanAmount']
     select_line=st.selectbox('Please enter the data you want to view',info2)
     if st.button("generate"):
@@ -168,23 +80,13 @@ def page_question2():
         st.header(str(min))
         st.write("The maximum value of "+select_line+" is:")
         st.header(str(max))
-        data = {'mean': [mean],
-        'min': [min],
-        'max': [max]}
-        data = {'mean': [100],  
-        'min': [80],  
-        'max': [120]}  
-        
-        labels = ['Value']  
-        
-        fig, ax = plt.subplots()  
-        
-        ax.bar(labels, data['mean'], color = 'blue') # mean bar  
-        ax.bar(labels, data['min'], bottom=data['mean'], color = 'y') # min bar  
-        ax.bar(labels, data['max'], bottom=data['mean'], color = 'r') # max bar  
-        
-        ax.legend(['mean', 'min', 'max'])  
-        
+        data = {'mean': [mean], 'min': [min], 'max': [max]}
+        x = ['mean', 'min', 'max']
+        y = [data['mean'][0], data['min'][0], data['max'][0]]
+        plt.bar(x, y)
+        plt.xlabel('Value')
+        plt.ylabel('Data')
+        plt.title('Data Distribution')
         st.pyplot(fig)
 
     
