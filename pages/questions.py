@@ -57,11 +57,13 @@ def page_question1():
     st.markdown("""The probability algorithm is based on the proportion of the successful number of databases to all eligible quantities. Therefore, due to the limitations of database data and the limited amount of data, the calculated results have limitations. This is only a reference for whether the applicant can successfully apply. The probability of reality varies greatly, please consider more based on individual circumstances.""")
     return None
 
+#Author:Tianqi Liu
+#To show the mean/max/min value of ApplicantIncome/CoapplicantIncome/LoanAmount under the selection of whether it is succesfully loaned.
 def page_question2():
     st.title('question2')
     info=[0,1]
-    select_loan=st.selectbox('Please enter whether the applicant has successfully borrowed (0 represents unsuccessful, 1 represents successful) ',info.columns.tolist())
-    df_selected_new=get_data.select_Loan_Status(select_loan)
+    select_loan=st.selectbox('Please enter whether the applicant has successfully borrowed (0 represents unsuccessful, 1 represents successful) ',info)
+    df_select_new=get_data.select_Loan_Status(select_loan)
     info2=['ApplicantIncome','CoapplicantIncome','LoanAmount']
     select_line=st.selectbox('Please enter the data you want to view',info2)
     mean=df_select_new[select_line].mean()
@@ -72,6 +74,8 @@ def page_question2():
         'max': [max]}
     df = pd.DataFrame(data)
     st.write(df)
+
+    
 
 def main():
     #This section is to implement the control flow of our app, where the pages designing are implemented.
