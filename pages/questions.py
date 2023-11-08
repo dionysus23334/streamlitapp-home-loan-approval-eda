@@ -5,7 +5,7 @@ import get_data
 import wash_data
 
 def page_question1():
-    st.title("Problem 1")
+    st.title("Question 1")
     st.header("Please choose your situation")
     df=wash_data.wash_data()
     choice_App=st.selectbox('Applicant Income',["<5000","<10000","<15000","<=20000",">20000"])
@@ -60,7 +60,7 @@ def page_question1():
 #Author:Tianqi Liu
 #To show the mean/max/min value of ApplicantIncome/CoapplicantIncome/LoanAmount under the selection of whether it is succesfully loaned.
 def page_question2():
-    st.title('question2')
+    st.title('Question 2')
     info=[0,1]
     select_loan=st.selectbox('Please enter whether the applicant has successfully borrowed (0 represents unsuccessful, 1 represents successful) ',info)
     df_select_new=get_data.select_Loan_Status(select_loan)
