@@ -11,6 +11,7 @@ import streamlit as st
 import wash_data
 import get_data
 
+
 #Author:HuXintong
 #Create an interface where users can choose their own situation and obtain the probability of their loan success
 def Page_selected():
