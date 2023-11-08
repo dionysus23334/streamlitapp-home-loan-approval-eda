@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 import wash_data
 import get_data
+import seaborn as sns
 
 #Author:Yuxi Guo
 def data_selected():
