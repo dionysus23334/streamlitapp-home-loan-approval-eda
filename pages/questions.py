@@ -177,6 +177,19 @@ def page_question2():
         plt.ylabel('Data')
         plt.title('Data Distribution')
         st.pyplot(fig)
+    if st.button('Information'):
+        st.markdown('''
+        This code defines a page named_ The function of question2() creates a page in the Streamlit application. This page displays the distribution of three data types (applicant income, co applicant income, and loan amount applied for) in the case of successful or failed loans. Users can quickly filter the conditions and click the button to view the distribution of different data types.
+The specific application process is as follows:\ 
+Display a title and a text explanation on the page.\ 
+Create a select_ Loan selection box allows users to select whether the application was successful (0 represents unsuccessful, 1 represents successful).\ 
+Based on the successful application selected by the user, filter out the corresponding records from the data to obtain a new data box df_ Select_ New.\ 
+Create a select_ The line selection box allows users to select the type of data they want to view (applicant income, co applicant income, or loan amount applied for).\ 
+If the user clicks on the 'generate' button:\ 
+Calculate the average, minimum, and maximum values for the selected data type.\ 
+Display the calculation results on the page.\ 
+Create a bar chart with the average, minimum, and maximum values as the data for the bar chart, and draw the chart on the page.\ 
+Through this method, users can understand the distribution of corresponding data by selecting different successful loan situations and data types, and visually display the average, minimum, and maximum values of the data through bar charts. This is very useful for analyzing the relationship between the applicant's income, loan amount, and the success or failure of the loan.\ ''')
 
     
 
