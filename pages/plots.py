@@ -110,7 +110,7 @@ def data_selected():
     is_self_employed = st.sidebar.selectbox('Self_employed', [None, True, False])
     is_urban = st.sidebar.selectbox('Urban', [None, True, False])
     credit_history = st.sidebar.selectbox('Credit_History', [None, True, False])
-    df_selected = get_data.select_data(x, is_graduate, is_married, is_female, is_self_employed, is_urban,
+    df_selected = select_data(x, is_graduate, is_married, is_female, is_self_employed, is_urban,
                                        credit_history)
     return df_selected
 
