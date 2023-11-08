@@ -97,7 +97,7 @@ def page_question2():
         
         ax.legend(['mean', 'min', 'max'])  
         
-        plt.show()
+        st.pyplot(fig)
 
     
 
