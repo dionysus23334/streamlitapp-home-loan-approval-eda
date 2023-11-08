@@ -1,10 +1,15 @@
-import streamlit as st
+from pyecharts import options as opts
+from pyecharts.charts import Pie
+from pyecharts.commons.utils import JsCode
+from streamlit_echarts import st_pyecharts
+import seaborn as sns
 import matplotlib.pyplot as plt
-import numpy as np
+import matplotlib.ticker as ticker
 import pandas as pd
+import numpy as np
+import streamlit as st
 import wash_data
 import get_data
-import seaborn as sns
 
 #Author:Yuxi Guo
 def data_selected():
