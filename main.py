@@ -52,7 +52,7 @@ def Page_selected():
         return None
     df_how=df_success*100/df_all
     df_how2=format(df_how,'.2f')
-    if df_how2>80:
+    if float(df_how2)>80:
         st.balloons()
     st.header("The probability of your loan success is:"+str(df_how2)+"%")
     st.text("Here are samples of this situation from existing data")
