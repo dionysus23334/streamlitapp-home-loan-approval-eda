@@ -131,7 +131,7 @@ def plot_pie_chart():
     return None
 
 #Author:Yuxi Guo
-def main():
+def plots():
     #This section is to implement the control flow of our app, where the pages designing are implemented.
     session_state=st.session_state
     if 'page' not in session_state:
@@ -154,6 +154,7 @@ def main():
         page_question2()
     elif page=='HuXintong':
         Page_selected()
-main()
+
+plots()
 
 
