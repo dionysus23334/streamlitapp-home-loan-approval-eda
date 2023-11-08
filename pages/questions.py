@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import get_data
 import wash_data
+import matplotlib.pyplot as plt
 
 def page_question1():
     st.title("Question 1")
