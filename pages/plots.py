@@ -135,21 +135,21 @@ def page_plot_heatmap():
         Heatmap：
         The heatmap specifically visualizes the correlation between various of variables in the loan approval dataset. The variables are analyzed for their correlation with the "Loan_Status" variable, which is our target variable. Overall, It allows for the interactive exploration and analysis of the loan approval dataset, enabling users to identify the variables with the strongest correlations to loan status and gain insights into the relationships between variables.
         The following step is to show the specific correlation analysis between the different variables with the LOAN STATUS.''')
-    elif x_2:
+    if x_2:
        st.markdown( 'The "Credit_History" variable is expected to have a strong positive correlation with "Loan_Status". A good credit history generally increases the chances of loan approval.')
-    elif x_3:    
+    if x_3:    
        st.markdown('The "Married" variable may have a moderate positive correlation with "Loan_Status". Married individuals may have more stable financial situations, which could positively impact loan approval.')
-    elif x_4:
+    if x_4:
        st.markdown(' The "Education" variable (specifically, being a graduate or not) could have a moderate positive correlation with "Loan_Status". Graduates may have better job prospects and higher incomes, increasing the likelihood of loan approval.')
-    elif x_5:
+    if x_5:
        st.markdown('The "Property_Area" variable (specifically, being in an urban area) may have a weak positive correlation with "Loan_Status". Urban areas often offer better employment opportunities, potentially influencing loan approval.')
-    elif x_6:
+    if x_6:
        st.markdown(' The "LoanAmount" variable may have a weak positive correlation with "Loan_Status". Higher loan amounts might indicate higher financial stability, which could increase the chances of loan approval.')
-    elif x_7:
+    if x_7:
        st.markdown('The "Gender" variable (specifically, being female) could have a weak correlation with "Loan_Status". However, further analysis is needed to determine the nature of this correlation.')
-    elif x_8:
+    if x_8:
        st.markdown('  The "ApplicantIncome" and "CoapplicantIncome" variables here have a relatively weak positive correlation with "Loan_Status". Nevertheless, higher incomes might indicate better repayment capabilities, positively affecting loan approval.')
-    elif x_9:
+    if x_9:
        st.markdown('''Let's further analyze the correlation between "Loan_Status" and other variables for some specific combinations.
     
     Male Graduates who are Married:\
