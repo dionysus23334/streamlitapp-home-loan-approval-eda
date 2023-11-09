@@ -197,7 +197,7 @@ def page_plot_heatmap():
     for v in range(0,len(variables)):
         variables[v]=variables[v][0:3]
     labels=cols.tolist()
-    cax=ax.matshow(cm,cmap='hot_r',color='blue')
+    cax=ax.matshow(cm,cmap=plt.cm.Blues)
     fig.colorbar(cax)
     tick_spacing=1
     ax.xaxis.set_major_locator(ticker.MultipleLocator(tick_spacing))
