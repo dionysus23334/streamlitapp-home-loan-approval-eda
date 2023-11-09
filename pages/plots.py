@@ -184,6 +184,7 @@ def page_plot_pie():
 #Author:Yuxi Guo
 #This function is to design the heatmap page and plot it with the dataset selected.
 def page_plot_heatmap():
+    
     st.title('Heat Map')
     plt.style.use("ggplot")
     fig,ax=plt.subplots()
@@ -196,7 +197,7 @@ def page_plot_heatmap():
     for v in range(0,len(variables)):
         variables[v]=variables[v][0:3]
     labels=cols.tolist()
-    cax=ax.matshow(cm,cmap='hot_r')
+    cax=ax.matshow(cm,cmap='hot_r',color='blue')
     fig.colorbar(cax)
     tick_spacing=1
     ax.xaxis.set_major_locator(ticker.MultipleLocator(tick_spacing))
