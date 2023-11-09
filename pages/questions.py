@@ -183,7 +183,11 @@ def page_question2():
         plt.title('Data Distribution')
         st.pyplot(fig)
     if st.button('more information'):
-        st.markdown('The practical significance of this code is to show the mean, minimum, and maximum values of the applicant's income, the co-applicant's income, and the loan amount by choosing whether the loan is successful or not. It can help us to understand the statistics of these data under different loan results. This is very helpful for understanding the financial status of the loan applicants and the impact of the loan. The potential of the code lies in helping analyze the relationship between applicant income, co-applicant income and loan amount and a successful loan. By comparing the mean, minimum and maximum values under different loan results, we can draw some conclusions, such as the applicants with successful loans usually have higher income and loan amount.')
+        st.markdown('''The practical significance of this code is to show the mean, minimum, and maximum values of the applicant's income, the co-applicant's income, and the loan amount by choosing whether the loan is successful or not.
+        It can help us to understand the statistics of these data under different loan results.
+        This is very helpful for understanding the financial status of the loan applicants and the impact of the loan.
+        The potential of the code lies in helping analyze the relationship between applicant income, co-applicant income and loan amount and a successful loan.
+        By comparing the mean, minimum and maximum values under different loan results, we can draw some conclusions, such as the applicants with successful loans usually have higher income and loan amount.''')
 
 
     
