@@ -299,7 +299,7 @@ def plot_pie_chart():
 
 #Author:Yuxi Guo
 def plots():
-    st.balloons()
+
     #This section is to implement the control flow of our app, where the pages designing are implemented.
     st.sidebar.markdown('# Query')
     st.sidebar.markdown('## Which plots do you want to see?')
