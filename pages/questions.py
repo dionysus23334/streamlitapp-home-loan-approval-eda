@@ -194,7 +194,6 @@ def page_question2():
     
 #Author:Yuxi Guo
 def main():
-    st.balloons()
     #This section is to implement the control flow of our app, where the pages designing are implemented.
     session_state=st.session_state
     if 'page' not in session_state:
