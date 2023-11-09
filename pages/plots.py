@@ -265,7 +265,7 @@ def plot_pie_chart():
     a=st.button('Introduction')
     if a:
        st.markdown('''
-    From this data, we can observe that the highest approval rate is in semi-urban areas, followed by urban areas and then rural areas. Correspondingly, the highest failure rate is in rural areas. This suggests that individuals living in semi-urban areas have a higher likelihood of getting their home loan approved compared to those in urban or rural areas. \ 
+    From this data, we can observe that the highest approval rate is in semi-urban areas, followed by urban areas and then rural areas. Correspondingly, the highest failure rate is in rural areas. This suggests that individuals living in semi-urban areas have a higher likelihood of getting their home loan approved compared to those in urban or rural areas. \n 
     Therefore, if you wants to analyze the advantages and disadvantages of your own area, you should consider the fact that living in a semi-urban area may provide a higher chance of home loan approval. However, it is important to note that this analysis is based solely on the provided data and other factors may also influence loan approval rates in different areas.''')
     df_selected = pd.read_csv('loan_sanction_train.csv')
     image_path = 'image.png'  
