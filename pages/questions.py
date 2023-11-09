@@ -95,7 +95,8 @@ def select_Loan_Status(x=None):
 #Author:Xintong Hu
 def page_question1():
     st.title("Question 1")
-    st.header("Please choose your situation")
+    st.header("According to the database, what is the probability of a successful loan based on the user's situation?")
+    st.markdown("Please choose your situation")
     df=wash_data()
     choice_App=st.selectbox('Applicant Income',["<5000","<10000","<15000","<=20000",">20000"])
     choice_App=(choice_App.replace('<',''))
