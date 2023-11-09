@@ -43,6 +43,7 @@ def page_home():
 #Author:Yuxi Guo
 def main():
     st.balloons()
+    st.snow()
     #This section is to implement the control flow of our app, where the pages designing are implemented.
     session_state=st.session_state
     if 'page' not in session_state:
